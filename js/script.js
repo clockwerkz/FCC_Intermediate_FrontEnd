@@ -14,5 +14,5 @@
       function changeQuote() {
         quoteNumber = Math.floor(Math.random()*authors.length);
         $("#quote").html(randomQuotes[authors[quoteNumber]]);
-        $(".twitter-share-button").attr("href",hrefLink+randomQuotes[authors[quoteNumber]]+" - " + authors[quoteNumber]);
+        $(".twitter-share-button").attr("href",hrefLink+randomQuotes[authors[quoteNumber]]+" - " + authors[quoteNumber]+"&amp;hashtags=quotes");
       }
