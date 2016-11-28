@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Random Quote Generator</title>
 
@@ -36,6 +37,8 @@
 
       <p><a class="btn btn-primary btn-lg" id="newQuote" href="#" role="button">New Quote!</a></p>
 
+      <a class="btn btn-primary btn-lg twitter-share-button" href="https://twitter.com/intent/tweet?text=Hello%20world">Tweet</a>
+
     </div>
 
 
@@ -47,23 +50,6 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  
-    <script>
-      var randomQuotes = {
-        "Tom Bissell":"A great writer reveals the truth even when he or she does not wish to.",
-        "Leslie Neilson":"Doing nothing is very hard to do ... you never know when you're finished.",
-        "John Gotti":"I never lie because I don't fear anyone. You only lie when you're afraid."  
-      };
-      var authors = Object.keys(randomQuotes);
-      var quoteNumber = Math.floor(Math.random()*authors.length);
-      console.log(quoteNumber);
-
-      $("#newQuote").on("click", function() {
-        var quoteNumber = Math.floor(Math.random()*authors.length);
-        console.log("Changing text to "+ randomQuotes[authors[quoteNumber]]);
-        $("#quote").html(randomQuotes[authors[quoteNumber]]);
-      });
-
-
-    </script>
+    <script src="js/script.js" type="text/javascript"></script>
   </body>
 </html>
