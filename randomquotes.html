@@ -12,6 +12,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link REL="shortcut icon" HREF="img/quotesPic.jpg" TYPE="image/x-icon">
 
+<style type="text/css">
+
+
+
+</style>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -21,13 +27,25 @@
   </head>
   <body>
 
-    <h1>Random Quote Generator</h1>
+    <div class="container">
+
+      <h1>Random Quote Generator</h1>
+
+    </div>
 
     <div class="jumbotron">
 
       <div class="container">
 
-        <H1 id="quote">"Some Random Quote"</H1>
+        <blockquote class="blockquote">
+
+          <p id="quote">"Some Random Quote"</p>
+
+          <footer class="blockquote-footer">
+            Someone famous
+          </footer>
+
+        </blockquote>
 
       </div>
 
@@ -37,7 +55,7 @@
 
       <p><a class="btn btn-primary btn-lg" id="newQuote" href="#" role="button">New Quote!</a></p>
 
-      <a class="btn btn-primary btn-lg twitter-share-button" href="https://twitter.com/intent/tweet?text=Hello%20world">Tweet</a>
+      <a class="btn btn-primary btn-lg twitter-share-button" href="https://twitter.com/intent/tweet?text=Hello%20world" target="_blank">Tweet</a>
 
     </div>
 
