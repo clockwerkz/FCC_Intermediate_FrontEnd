@@ -16,13 +16,20 @@ var testResult = {"coord":{"lon":139,"lat":35},
                     "name":"Shuzenji",
                     "cod":200};
 console.log(testResult.weather[0].icon);
+
 navigator.geolocation.getCurrentPosition(function(pos){
   console.log(pos.coords.latitude+"  "+pos.coords.longitude);
-  $.getJSON(weatherAPI+"lat="+pos.coords.latitude+"&lon="+pos.coords.longitude+"&APPID="+apiKey, function(data) {
+  $.getJSON(weatherAPI+"lat="+pos.coords.latitude+"&lon="+pos.coords.longitude+"&units=imperial&APPID="+apiKey, function(data) {
     $(".cityName").html("City: "+data.name);
     $(".weatherStatus").attr("src",weatherIcon+data.weather[0].icon+".png");
+    document.getElementById("temperature").innerHTML+=data.main.temp+"&deg";
   });
 });
+
+
+function changeDegrees() {
+    console.log("Degrees changed.");
+}
 
 
 
