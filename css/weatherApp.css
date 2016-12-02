@@ -1,0 +1,12 @@
+.weatherImage{
+	margin: 0 auto;
+	height: 100px;
+	width: 100px;
+	background-color: #DDD;
+	border-radius: 50px;
+}
+
+.weatherImage img {
+	vertical-align: middle;
+	text-align: center;
+}
