@@ -11,11 +11,7 @@
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<style type="text/css">
-
-
-
-</style>
+<link rel="stylesheet" href="css/weatherApp.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,10 +24,16 @@
 
   <body>
 
-    <div class="jumbotron">
-    <h1 class="cityName">City:</h1>
-    <img class="weatherStatus" src="http://openweathermap.org/img/w/01d.png" />
-    <h1 id="temperature" onclick="changeDegrees()">Temp:</h1>
+    <header>
+
+    </header>
+
+    <div class="container">
+      <h2 class="text-center" id="cityName"></h2>
+      <div class="weatherImage">
+        <img id="weatherIcon" src="http://openweathermap.org/img/w/01d.png" />
+      </div>
+      <h2 id="temperature" onclick="changeDegrees()"></h2>
 
     </div>
 
