@@ -1,45 +1,50 @@
 const apiKey = "1a4f97ef098818cd32c2f6eac963d1dc";
 var currentTemp = [];
 farenheit = true;
-//api.openweathermap.org/data/2.5/weather?lat=35&lon=139
+var longitude, latitude, city;
+
 
 const weatherAPI = "http://api.openweathermap.org/data/2.5/weather?";
 var icons = new Skycons({"color":"orange"});
 
+$.ajax({
+  url:'http://ip-api.com/json',
+  async:false,
+  dataType: 'json',
+  success: function (json) {
+    longitude = json.lon;
+    latitude = json.lat;
+    if (json.region){
+      city = json.city+", "+json.region;
+    } else {
+      city = json.city;
+    }
+  }
+});
+
+
 /*
-Sample JSON object returned from Open Weather API
-
-var testResult = {"coord":{"lon":139,"lat":35},
-                    "sys":{"country":"JP","sunrise":1369769524,"sunset":1369821049},
-                    "weather":[{"id":804,"main":"clouds","description":"overcast clouds","icon":"04n"}],
-                    "main":{"temp":289.5,"humidity":89,"pressure":1013,"temp_min":287.04,"temp_max":292.04},
-                    "wind":{"speed":7.31,"deg":187.002},
-                    "rain":{"3h":0},
-                    "clouds":{"all":92},
-                    "dt":1369824698,
-                    "id":1851632,
-                    "name":"Shuzenji",
-                    "cod":200};
-*/
-
- navigator.geolocation.getCurrentPosition(function(pos){
-  console.log(pos.coords.latitude+"  "+pos.coords.longitude);
-  $.getJSON(weatherAPI+"lat="+pos.coords.latitude+"&lon="+pos.coords.longitude+"&units=imperial&APPID="+apiKey, function(data) {
-    document.getElementById("cityName").innerHTML=data.name;
+$.getJSON("http://ip-api.com/json", function(data){
+  console.log(data.lon)
+  saveCoords(data.lon,data.lat);
+});*/
+  
+ 
+console.log(weatherAPI+"lat="+latitude+"&lon="+longitude+"&units=imperial&APPID="+apiKey);
+ 
+$.getJSON(weatherAPI+"lat="+latitude+"&lon="+longitude+"&units=imperial&APPID="+apiKey, function(data) {
+    document.getElementById("cityName").innerHTML=city;
     currentTemp.push(data.main.temp);
     currentTemp.push((data.main.temp-32) / (9/5))
     document.getElementById("temperature").innerHTML=currentTemp[0].toFixed(1)+"&deg F";
     getConditionImage(data.weather[0].id);
-  });
 });
-/*
-document.getElementById("cityName").innerHTML=testResult.name;
-document.getElementById("weatherIcon").setAttribute("src",weatherIcon+testResult.weather[0].icon+".png");
-currentTemp.push(testResult.main.temp);
-currentTemp.push((testResult.main.temp-32) / (9/5))
-document.getElementById("temperature").innerHTML=currentTemp[0].toFixed(1)+"&deg F";
-*/
 
+
+   
+   
+   
+   
 function changeDegrees() {
     if (farenheit){
         farenheit = false;
@@ -79,6 +84,3 @@ function getConditionImage(code) {
     }
     icons.play();
 };
-
-
-
