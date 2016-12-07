@@ -7,6 +7,10 @@ body {
 	margin: 60px 0px 20px 0px;
 }
 
+.clearBoth {
+	clear: both;
+}
+
 .floatLeft {
 	float: left;
 }
