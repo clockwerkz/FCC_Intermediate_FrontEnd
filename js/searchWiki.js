@@ -24,12 +24,14 @@ function searchText() {
 		dataType: "jsonp",
 		async: false,
 		success: function (response) {
-			//console.log(response.query);
-			itemList = Object.keys(response.query);
-			for (i=0; i<itemList.length; i++){
-				console.log(response.query[i]);
-			}
-			document.getElementById("wikiReturn").innerHTML=response.query;
+			var obj = response.query;
+			console.log(JSON.stringify(obj));
+			itemList = Object.keys(obj.search);
+			console.log(itemList);
+			for (key in itemList){
+				console.log(obj.search[key]);
+				document.getElementById("wikiReturn").innerHTML+=JSON.stringify(obj.search[key])+"<br>";
+			} 
 		},
 		error: function() {
 			alert("Error");
