@@ -5,11 +5,12 @@ var wikiJsonAttrib = "&format=json&callback=?";
 
 
 var wikiSearch = "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=miami&prop=info&inprop=url&utf8=&format=jsonfm&callback=?"
-
+var resultString = "";
 
 console.log(document.getElementById("wikiReturn").innerHTML);
 
 function searchText() {
+	resultString = "";
 	if (document.getElementById("searchTopic").value){
 		searchValue = document.getElementById("searchTopic").value;
 
@@ -25,13 +26,13 @@ function searchText() {
 		async: false,
 		success: function (response) {
 			var obj = response.query;
-			console.log(JSON.stringify(obj));
-			itemList = Object.keys(obj.search);
-			console.log(itemList);
-			for (key in itemList){
-				console.log(obj.search[key]);
-				document.getElementById("wikiReturn").innerHTML+=JSON.stringify(obj.search[key])+"<br>";
-			} 
+			//console.log(JSON.stringify(obj));
+			var items = obj.search;
+			itemList = Object.keys(items);
+				for (key in itemList){
+					resultString +="<h3>"+items[key].title+"</h3> <p>"+items[key].snippet+"</p><br>";
+				}
+				document.getElementById("wikiReturn").innerHTML=resultString;
 		},
 		error: function() {
 			alert("Error");
