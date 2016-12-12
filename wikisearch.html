@@ -35,7 +35,7 @@
 
     </div>
     
-    <form class="form-horizontal">
+    <form class="form-horizontal" onsubmit="searchText()">
 
       <div class="form-group">
 
@@ -47,23 +47,30 @@
 
       </div>  <!-- form-group -->
 
+    </form>
+
+    <div class="row">
+
       <div class="col-sm-6 col-sm-offset-3">
             
         <button class="btn btn-info floatLeft" onclick="searchText()" >Search</button>
 
-        <button class="btn btn-info floatRight">Random</button>
+        <button class="btn btn-info floatRight" onclick="randomWiki()">Random</button>
 
       </div> <!-- col-sm-4 col-sm-offset-3 -->
 
-    </form>
+    </div> <!-- row -->
 
     <div class="clearBoth"></div>
 
-    <div class=
+    <div class="row">
 
-      <p id="wikiReturn"></p>
+      <div class="col-sm-8 col-sm-offset-2" id="searchResults">
+        
+
+      </div>
     
-    </div>
+    </div> <!-- row -->
 
   </div> <!-- container -->
 

@@ -18,3 +18,11 @@ body {
 .floatRight {
 	float: right;
 }
+
+#searchResults {
+	padding: 20px 0 0 0;
+}
+
+#searchResults .col-sm-8 {
+	padding: 15px 0 0 0;
+}
