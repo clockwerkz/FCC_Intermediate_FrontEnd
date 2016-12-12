@@ -24,6 +24,8 @@
 
     <div id="output" class="output">Nothing</div>
 
+    <button type="button" id="myBtn">Get Data</button>
+
     
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -37,6 +39,11 @@
     <script>
 
       var myContainer = "";
+      document.getElementById("myBtn").addEventListener("click", myFun);
+
+      function myFun() {
+        console.log("HELLO");
+      }
 
       var a = new XMLHttpRequest();
       a.open("GET","https://api.myjson.com/bins/1ebdvl", true);
